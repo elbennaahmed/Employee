@@ -1,0 +1,56 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchname()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>employees List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let employee of employees; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveemployee(employee, i)"
+      >
+        {{ employee.name }}
+      </li>
+    </ul>
+
+ 
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentemployee">
+      <h4>employee</h4>
+      <div>
+        <label><strong>name:</strong></label> {{ currentemployee.name }}
+      </div>
+      <div>
+        <label><strong>mail:</strong></label>
+        {{ currentemployee.mail }}
+      </div>
+ 
+
+     
+    </div>
+
+    <div *ngIf="!currentemployee">
+      <br />
+      <p>Please click on a employee...</p>
+    </div>
+  </div>
+</div>

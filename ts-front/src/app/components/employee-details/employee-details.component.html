@@ -1,0 +1,39 @@
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentemployee" class="edit-form">
+    <h4>employee</h4>
+    <form>
+      <div class="form-group">
+        <label for="name">name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="currentemployee.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="mail">mail</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mail"
+          [(ngModel)]="currentemployee.mail"
+          name="mail"
+        />
+      </div>
+
+  
+    </form>
+ 
+
+    
+ 
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentemployee">
+    <br />
+    <p>Cannot access this employee...</p>
+  </div>
+</div>
